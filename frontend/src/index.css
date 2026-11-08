@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .tarjeta { @apply bg-white rounded-xl border border-tinta-100 shadow-sm; }
+  .btn { @apply inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:opacity-50; }
+  .btn-primario { @apply btn bg-tinta-700 text-white hover:bg-tinta-800; }
+  .btn-verde { @apply btn bg-menta-600 text-white hover:bg-menta-700; }
+  .btn-borde { @apply btn border border-tinta-200 bg-white text-tinta-700 hover:bg-tinta-50; }
+  .btn-peligro { @apply btn border border-red-200 bg-white text-red-700 hover:bg-red-50; }
+  .campo { @apply w-full rounded-lg border border-tinta-200 bg-white px-3 py-2 text-sm outline-none focus:border-tinta-600 focus:ring-2 focus:ring-tinta-100; }
+  .etiqueta { @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-tinta-400; }
+  .tabla { @apply w-full text-sm; }
+  .tabla th { @apply border-b border-tinta-100 bg-tinta-50 px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-tinta-400; }
+  .tabla td { @apply border-b border-tinta-50 px-3 py-2; }
+  .num { @apply text-right font-mono tabular-nums; }
+  .pastilla { @apply inline-block rounded-full px-2 py-0.5 text-xs font-semibold; }
+}
+
+/* Reportes imprimibles: solo se imprime el contenido del reporte */
+@media print {
+  .no-imprimir { display: none !important; }
+  body { background: white; }
+  .tarjeta { border: none; box-shadow: none; }
+  main { padding: 0 !important; margin: 0 !important; }
+  @page { margin: 14mm; }
+}
